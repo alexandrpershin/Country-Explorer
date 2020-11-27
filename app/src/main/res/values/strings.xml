@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">CountryExplorer</string>
+
+    <string name="error_message_unexpected_error">Unexpected error occurred</string>
+    <string name="message_internet_error">Internet connection appears to be offline</string>
+
 </resources>
