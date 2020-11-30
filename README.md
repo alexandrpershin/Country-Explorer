@@ -35,7 +35,7 @@ App shows composed text about selected country using it's fields.
 4. Unit tests  <br />
 Unit tests were implemented as well.
  
-5. Localization
+5. Localization <br /> 
 All strings are extracted to strings.xml to make app localization easier.
 App also checks if country item has translation for current mobile device locale.
 
