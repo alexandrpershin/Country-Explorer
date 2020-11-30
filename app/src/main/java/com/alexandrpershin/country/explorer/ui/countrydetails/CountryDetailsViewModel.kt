@@ -40,6 +40,10 @@ class CountryDetailsViewModel(
     }
 
 
+    /**
+     * Creates description of country using common template.
+    * */
+
     private suspend fun composeDescription(country: Country) {
         val allCountries = repository.getAllCountriesSync()
 
@@ -110,8 +114,6 @@ class CountryDetailsViewModel(
             .append(phoneCodeBlock)
 
         _countryDescriptionLiveData.value = description.toString()
-
-
     }
 
 
