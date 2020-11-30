@@ -43,8 +43,9 @@ class SearchCountriesViewModel(
                 }
                 is TaskResult.SuccessResult -> {
                     hideLoading()
-                    _searchResultLiveData.value = result.data
 
+                    _noResultsLiveData.value = result.data.isEmpty()
+                    _searchResultLiveData.value = result.data
                 }
             }
         }
