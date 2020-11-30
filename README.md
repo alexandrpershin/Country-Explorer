@@ -31,6 +31,6 @@ If data is empty or internet connectivity unavailable - app notifies user about 
 App shows some details of selected country.
  
 4. Unit tests  <br />
-I implemented some unit tests.
+Unit tests were implemented as well.
  
 
