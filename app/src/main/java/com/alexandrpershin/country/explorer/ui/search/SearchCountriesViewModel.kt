@@ -19,6 +19,9 @@ class SearchCountriesViewModel(
     private var _searchResultLiveData = MutableLiveData<List<Country>>()
     val searchResultLiveData = _searchResultLiveData.asLiveData()
 
+    private var _noResultsLiveData = MutableLiveData<Boolean>()
+    val noResultsLiveData = _noResultsLiveData.asLiveData()
+
     fun searchCountries(query: String) {
         if (query.isEmpty()) {
             _searchResultLiveData.value = emptyList()
@@ -35,6 +38,7 @@ class SearchCountriesViewModel(
                     hideLoading()
                     notifyError(result.errorType)
 
+                    _noResultsLiveData.value = true
                     _searchResultLiveData.value = emptyList()
                 }
                 is TaskResult.SuccessResult -> {

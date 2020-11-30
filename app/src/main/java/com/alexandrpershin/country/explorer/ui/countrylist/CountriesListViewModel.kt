@@ -1,5 +1,6 @@
 package com.alexandrpershin.country.explorer.ui.countrylist
 
+import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.alexandrpershin.country.explorer.R
@@ -20,11 +21,15 @@ class CountriesListViewModel(
 ) : BaseViewModel() {
 
     init {
+        loadCountriesFromDatabase()
         loadCountriesFormServer()
     }
 
     private var _countriesLiveData = MutableLiveData<List<Country>>()
     val countriesLiveData = _countriesLiveData.asLiveData()
+
+    private var _noResultsLiveData = MutableLiveData<Boolean>()
+    val noResultsLiveData = _noResultsLiveData.asLiveData()
 
     fun loadCountriesFormServer() {
         viewModelScope.launch(coroutineContext) {
@@ -47,9 +52,12 @@ class CountriesListViewModel(
         }
     }
 
-    private fun loadCountriesFromDatabase() {
+    @VisibleForTesting
+    fun loadCountriesFromDatabase() {
         viewModelScope.launch(coroutineContext) {
-            _countriesLiveData.value = countryRepository.getAllCountriesSync()
+            val allCountriesSync = countryRepository.getAllCountriesSync()
+            _countriesLiveData.value = allCountriesSync
+            _noResultsLiveData.value = allCountriesSync.isNullOrEmpty()
         }
     }
 

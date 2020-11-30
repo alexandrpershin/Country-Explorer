@@ -54,8 +54,11 @@ class CountriesListFragment : BaseFragment<FragmentCountriesListBinding, Countri
 
     override fun addObservers(binding: FragmentCountriesListBinding) {
         viewModel.countriesLiveData.observe(viewLifecycleOwner, Observer {
-            binding.tvNoResults.setVisible(it.isEmpty())
             adapter.updateData(it)
+        })
+
+        viewModel.noResultsLiveData.observe(viewLifecycleOwner, Observer {
+            binding.tvNoResults.setVisible(it)
         })
     }
 

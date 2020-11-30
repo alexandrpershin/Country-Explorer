@@ -3,6 +3,7 @@ package com.alexandrpershin.country.explorer.app
 import com.alexandrpershin.country.explorer.api.BackendApiFactory
 import com.alexandrpershin.country.explorer.api.createApiService
 import com.alexandrpershin.country.explorer.persistence.LocalDatabase
+import com.alexandrpershin.country.explorer.persistence.dao.CountryDao
 import com.alexandrpershin.country.explorer.repository.CountryRepository
 import com.alexandrpershin.country.explorer.repository.repositoryImpl.CountryRepositoryImpl
 import com.alexandrpershin.country.explorer.service.CountriesService
@@ -23,6 +24,12 @@ val appModule: Module = module {
 
     //Local database
     single<LocalDatabase> { LocalDatabase.getInstance(androidApplication()) }
+
+    // Countries DAO
+    single<CountryDao> {
+        val database: LocalDatabase = get()
+        return@single database.countryDao()
+    }
 
     //NetworkStatusHelper
     single<NetworkHelper> { NetworkHelper(androidApplication()) }

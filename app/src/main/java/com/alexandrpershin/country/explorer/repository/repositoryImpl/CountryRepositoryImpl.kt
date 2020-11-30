@@ -5,7 +5,6 @@ import com.alexandrpershin.country.explorer.api.executeAsyncRequest
 import com.alexandrpershin.country.explorer.api.mapper.mapToEntityList
 import com.alexandrpershin.country.explorer.api.response.CountryResponse
 import com.alexandrpershin.country.explorer.model.Country
-import com.alexandrpershin.country.explorer.persistence.LocalDatabase
 import com.alexandrpershin.country.explorer.persistence.dao.CountryDao
 import com.alexandrpershin.country.explorer.repository.CountryRepository
 import com.alexandrpershin.country.explorer.service.CountriesService
@@ -19,8 +18,7 @@ import kotlin.coroutines.CoroutineContext
 
 class CountryRepositoryImpl(
     private val countriesService: CountriesService,
-    private val localDatabase: LocalDatabase,
-    private val countryDao: CountryDao = localDatabase.countryDao(),
+    private val countryDao: CountryDao,
     private val coroutineContext: CoroutineContext = Dispatchers.Default
 ) : CountryRepository {
 

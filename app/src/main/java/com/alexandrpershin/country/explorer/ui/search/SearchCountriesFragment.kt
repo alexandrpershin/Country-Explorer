@@ -55,13 +55,15 @@ class SearchCountriesFragment :
     override fun addObservers(binding: FragmentSearchCountriesBinding) {
         viewModel.searchResultLiveData.observe(viewLifecycleOwner, Observer {
             adapter.updateData(it)
-            binding.tvNoResults.setVisible(it.isEmpty())
         })
+
+        viewModel.noResultsLiveData.observe(viewLifecycleOwner, Observer {
+            binding.tvNoResults.setVisible(it)
+        })
+
     }
 
     override fun errorHandler(errorType: ErrorType) {
-        binding?.tvNoResults?.makeVisible()
-
         if (errorType is ErrorType.InternetError) {
             showErrorMessage(getString(errorType.resId))
         }
