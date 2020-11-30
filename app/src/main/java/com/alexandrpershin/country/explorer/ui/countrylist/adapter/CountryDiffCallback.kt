@@ -1,10 +1,10 @@
-package com.alexandrpershin.country.explorer.ui.search.adapter
+package com.alexandrpershin.country.explorer.ui.countrylist.adapter
 
 import androidx.annotation.Nullable
 import androidx.recyclerview.widget.DiffUtil
 import com.alexandrpershin.country.explorer.model.Country
 
-class SearchCountryDiffCallback(
+class CountryDiffCallback(
     private var newResults: List<Country>,
     private var oldResults: List<Country>
 ) :

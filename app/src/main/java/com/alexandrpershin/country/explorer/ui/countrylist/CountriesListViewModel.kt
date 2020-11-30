@@ -1,6 +1,5 @@
 package com.alexandrpershin.country.explorer.ui.countrylist
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.alexandrpershin.country.explorer.R
@@ -9,26 +8,25 @@ import com.alexandrpershin.country.explorer.extensions.asLiveData
 import com.alexandrpershin.country.explorer.model.Country
 import com.alexandrpershin.country.explorer.repository.CountryRepository
 import com.alexandrpershin.country.explorer.ui.base.BaseViewModel
-import com.alexandrpershin.country.explorer.utils.NetworkStatusHelper
+import com.alexandrpershin.country.explorer.utils.NetworkHelper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
 class CountriesListViewModel(
     private val countryRepository: CountryRepository,
-    private val networkStatusHelper: NetworkStatusHelper,
+    private val networkStatusHelper: NetworkHelper,
     private val coroutineContext: CoroutineContext = Dispatchers.Main
 ) : BaseViewModel() {
 
     init {
         loadCountriesFormServer()
-        loadCountriesFromDatabase()
     }
 
     private var _countriesLiveData = MutableLiveData<List<Country>>()
     val countriesLiveData = _countriesLiveData.asLiveData()
 
-    fun loadCountriesFormServer(force: Boolean = false) {
+    fun loadCountriesFormServer() {
         viewModelScope.launch(coroutineContext) {
             showLoading()
 
@@ -43,7 +41,7 @@ class CountriesListViewModel(
                     hideLoading()
                     countryRepository.saveCountries(result.data)
 
-                    if (force) loadCountriesFromDatabase()
+                    loadCountriesFromDatabase()
                 }
             }
         }
@@ -58,7 +56,7 @@ class CountriesListViewModel(
     fun fetchDataOnInternetAvailable() {
         networkStatusHelper.apply {
             setCallbackOnInternetAvailable {
-                loadCountriesFormServer(true)
+                loadCountriesFormServer()
                 showInfoMessage(R.string.message_you_back_online)
                 this.removeCallbackOnInternetAvailable()
             }

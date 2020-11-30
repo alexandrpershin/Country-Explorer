@@ -8,6 +8,11 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 
+/**
+ * Application class.
+ * Inside [onCreate] method start [Koin], to provide dependencies
+ * */
+
 class CountryExplorerApp : Application() {
 
     private val modules = listOf(

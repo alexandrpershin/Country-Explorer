@@ -19,6 +19,9 @@ import com.alexandrpershin.country.explorer.extensions.makeVisible
 import com.alexandrpershin.country.explorer.extensions.showInfoMessage
 import com.alexandrpershin.country.explorer.utils.NavigationCommand
 
+/**
+ *  Base class for [Fragment] with [BaseViewModel] instance inside
+ * */
 
 abstract class BaseFragment<DB : ViewBinding, VM : BaseViewModel> : Fragment() {
     protected val TAG: String = this::class.java.simpleName
@@ -30,6 +33,10 @@ abstract class BaseFragment<DB : ViewBinding, VM : BaseViewModel> : Fragment() {
     private val progressBar: ProgressBar? by lazy {
         binding?.root?.findViewById(R.id.progressBar)
     }
+
+    /**
+     * Abstract methods what should be implemented by derived classes
+     * */
 
     abstract fun initBinding(
         inflater: LayoutInflater,
@@ -72,9 +79,7 @@ abstract class BaseFragment<DB : ViewBinding, VM : BaseViewModel> : Fragment() {
             }
         })
 
-        return binding!!.root.also {
-            it.fitsSystemWindows = true
-        }
+        return binding!!.root
     }
 
     open fun showLoading(binding: DB) {

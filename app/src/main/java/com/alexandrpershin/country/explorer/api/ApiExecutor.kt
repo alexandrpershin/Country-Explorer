@@ -7,6 +7,9 @@ import kotlinx.coroutines.Deferred
 import retrofit2.Response
 import java.net.UnknownHostException
 
+/**
+ * Handles retrofit response. Depends on result code returns expected result if success and [ErrorType] otherwise
+ * */
 
 suspend fun <T> executeAsyncRequest(request: Deferred<Response<T>>): TaskResult<T> {
 

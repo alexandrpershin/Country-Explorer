@@ -1,4 +1,4 @@
-package com.alexandrpershin.country.explorer.ui.search.adapter
+package com.alexandrpershin.country.explorer.ui.countrylist.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -37,7 +37,7 @@ class CountriesAdapter(
 
         newCountries.let {
 
-            DiffUtil.calculateDiff(SearchCountryDiffCallback(it, countries)).dispatchUpdatesTo(this)
+            DiffUtil.calculateDiff(CountryDiffCallback(it, countries)).dispatchUpdatesTo(this)
 
             this.countries.clear()
             this.countries.addAll(it)

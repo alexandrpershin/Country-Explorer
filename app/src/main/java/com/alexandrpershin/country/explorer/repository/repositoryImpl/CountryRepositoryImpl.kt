@@ -13,6 +13,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlin.coroutines.CoroutineContext
 
+/**
+ * Concrete implementation of [CountryRepository] for providing data to ViewModel
+ * */
+
 class CountryRepositoryImpl(
     private val countriesService: CountriesService,
     private val localDatabase: LocalDatabase,

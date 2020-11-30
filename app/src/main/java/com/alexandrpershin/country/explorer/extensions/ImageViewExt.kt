@@ -6,6 +6,9 @@ import android.widget.ImageView
 import androidx.annotation.DrawableRes
 import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou
 
+/**
+ * Load images with *.svg extension
+* */
 
 fun ImageView.loadSvgFromUrl(
     context: Context,

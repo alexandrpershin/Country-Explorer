@@ -8,6 +8,11 @@ import com.alexandrpershin.country.explorer.api.ErrorType
 import com.alexandrpershin.country.explorer.utils.NavigationCommand
 import com.alexandrpershin.country.explorer.utils.SingleLiveEvent
 
+/**
+ * Base class for ViewModel classes.
+ * Notifies [BaseFragment] about events like navigation, error, keyboard state, loading state
+ * */
+
 abstract class BaseViewModel : ViewModel() {
 
     val TAG = this.javaClass.simpleName

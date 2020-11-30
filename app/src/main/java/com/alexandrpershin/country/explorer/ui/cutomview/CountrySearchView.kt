@@ -12,6 +12,10 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
+/**
+ * Custom search view for search countries
+* */
+
 class CountrySearchView : ConstraintLayout {
 
     private lateinit var binding: SearchViewBinding

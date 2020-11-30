@@ -6,21 +6,28 @@ import com.alexandrpershin.country.explorer.model.Country
 import com.google.gson.annotations.SerializedName
 
 
+/**
+ * Pojo response from backend
+ * */
+
 class CountryResponse(
-    val alpha3Code: String?,
-    val borders: List<String>?,
-    val callingCodes: List<String>?,
-    val capital: String?,
-    val currencies: List<CurrencyDto>?,
-    val flag: String?,
-    val languages: List<LanguageDto>?,
-    val name: String?,
-    val nativeName: String?,
-    val numericCode: String?,
-    val population: Int?,
+    @SerializedName("alpha3Code") val alphaCode: String?,
+    @SerializedName("borders") val borders: List<String>?,
+    @SerializedName("callingCodes") val callingCodes: List<String>?,
+    @SerializedName("capital") val capital: String?,
+    @SerializedName("currencies") val currencies: List<CurrencyDto>?,
+    @SerializedName("flag") val flag: String?,
+    @SerializedName("languages") val languages: List<LanguageDto>?,
+    @SerializedName("name") val name: String?,
+    @SerializedName("nativeName") val nativeName: String?,
+    @SerializedName("population") val population: Int?,
     @SerializedName("subregion") val subRegion: String?,
-    val translations: Map<String, String>?
+    @SerializedName("translations") val translations: Map<String, String>?
 ) : Mapper<Country> {
+
+    /**
+     * Convert response object from DTO (Data transfer object) to entity object
+     * */
 
     override fun toEntity(): Country {
         return Country(
@@ -29,7 +36,7 @@ class CountryResponse(
             flag = flag.toSafeString(),
             capital = capital.toSafeString(),
             phoneCode = callingCodes?.joinToString().toSafeString(),
-            countryCode = alpha3Code.toSafeString(),
+            countryCode = alphaCode.toSafeString(),
             population = population ?: 0,
             subRegion = subRegion.toSafeString(),
             languages = languages?.map { it.name.toSafeString() } ?: emptyList(),

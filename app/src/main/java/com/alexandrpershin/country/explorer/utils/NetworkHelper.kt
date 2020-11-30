@@ -4,18 +4,9 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.os.Build
 
-class NetworkStatusHelper(private val context: Context) {
+class NetworkHelper(private val context: Context) {
 
     private val networkStatusCallbackHelper = NetworkStatusCallbackHelper()
-
-    fun setCallbackOnInternetAvailable(action: () -> Unit) {
-        networkStatusCallbackHelper.setCallbackOnInternetAvailable(action)
-    }
-
-    fun removeCallbackOnInternetAvailable() {
-        networkStatusCallbackHelper.removeCallbackOnInternetAvailable()
-    }
-
 
     private val connectivityManager =
         context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
@@ -35,6 +26,18 @@ class NetworkStatusHelper(private val context: Context) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             networkStatusCallbackHelper.initNetworkCallback(connectivityManager)
         }
+    }
+
+    /**
+     * Trigger action once internet available again
+     * */
+
+    fun setCallbackOnInternetAvailable(action: () -> Unit) {
+        networkStatusCallbackHelper.setCallbackOnInternetAvailable(action)
+    }
+
+    fun removeCallbackOnInternetAvailable() {
+        networkStatusCallbackHelper.removeCallbackOnInternetAvailable()
     }
 
     fun unregisterNetworkCallback() {

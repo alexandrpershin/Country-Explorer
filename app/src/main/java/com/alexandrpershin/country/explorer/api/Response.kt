@@ -3,6 +3,10 @@ package com.alexandrpershin.country.explorer.api
 import androidx.annotation.StringRes
 import com.alexandrpershin.country.explorer.R
 
+/**
+ * Comfortable way to wrap data and errors
+ * */
+
 sealed class TaskResult<out T> {
     data class ErrorResult(val errorType: ErrorType) : TaskResult<Nothing>()
     data class SuccessResult<T>(val data: T) : TaskResult<T>()

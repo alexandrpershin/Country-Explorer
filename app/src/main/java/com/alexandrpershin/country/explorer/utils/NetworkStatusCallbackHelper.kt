@@ -8,7 +8,7 @@ import android.util.Log
 @SuppressLint("NewApi")
 class NetworkStatusCallbackHelper {
 
-    private val TAG = NetworkStatusHelper::class.java.simpleName
+    private val TAG = NetworkHelper::class.java.simpleName
 
     private var onInternetAvailableCallback: (() -> Unit)? = null
 

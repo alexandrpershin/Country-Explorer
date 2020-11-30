@@ -1,6 +1,8 @@
 package com.alexandrpershin.country.explorer.api.response
 
+import com.google.gson.annotations.SerializedName
+
 class LanguageDto(
-    val name: String?,
-    val nativeName: String?
+    @SerializedName("name") val name: String?,
+    @SerializedName("nativeName") val nativeName: String?
 )

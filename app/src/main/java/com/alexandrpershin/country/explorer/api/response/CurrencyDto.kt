@@ -1,7 +1,9 @@
 package com.alexandrpershin.country.explorer.api.response
 
+import com.google.gson.annotations.SerializedName
+
 class CurrencyDto(
-    val code: String,
-    val name: String,
-    val symbol: String
+    @SerializedName("code") val code: String,
+    @SerializedName("name") val name: String,
+    @SerializedName("symbol") val symbol: String
 )

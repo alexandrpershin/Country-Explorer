@@ -6,6 +6,10 @@ import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
 
+/**
+ * Api service for network level
+ * */
+
 interface CountriesService {
 
     @GET("rest/v2/all/")

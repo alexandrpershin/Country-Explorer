@@ -13,6 +13,10 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
+/**
+ * Helper class to create API services
+ * */
+
 class BackendApiFactory {
 
     private val gson: Gson = GsonBuilder().create()

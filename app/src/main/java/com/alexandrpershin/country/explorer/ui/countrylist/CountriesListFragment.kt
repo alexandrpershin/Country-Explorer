@@ -11,7 +11,7 @@ import com.alexandrpershin.country.explorer.extensions.setVisible
 import com.alexandrpershin.country.explorer.extensions.showErrorMessage
 import com.alexandrpershin.country.explorer.extensions.stopRefreshing
 import com.alexandrpershin.country.explorer.ui.base.BaseFragment
-import com.alexandrpershin.country.explorer.ui.search.adapter.CountriesAdapter
+import com.alexandrpershin.country.explorer.ui.countrylist.adapter.CountriesAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CountriesListFragment : BaseFragment<FragmentCountriesListBinding, CountriesListViewModel>() {
@@ -46,7 +46,7 @@ class CountriesListFragment : BaseFragment<FragmentCountriesListBinding, Countri
     override fun addListeners(binding: FragmentCountriesListBinding) {
         binding.swipeRefreshLayout.apply {
             setOnRefreshListener {
-                viewModel.loadCountriesFormServer(true)
+                viewModel.loadCountriesFormServer()
                 stopRefreshing()
             }
         }

@@ -1,17 +1,7 @@
 package com.alexandrpershin.country.explorer.extensions
 
-import android.animation.ValueAnimator
-import android.text.Editable
-import android.text.TextWatcher
-import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
-import android.view.ViewGroup
-import android.widget.EditText
-import androidx.annotation.LayoutRes
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import androidx.vectordrawable.graphics.drawable.ArgbEvaluator
-import com.google.android.material.tabs.TabLayout
 
 /**
  * View extensions

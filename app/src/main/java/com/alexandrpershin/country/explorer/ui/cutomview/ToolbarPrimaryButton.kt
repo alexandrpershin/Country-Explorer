@@ -15,17 +15,6 @@ class ToolbarPrimaryButton : AppCompatImageButton {
         object Back : Type(0)
         class Image(@DrawableRes val resId: Int? = null) : Type(1)
         object None : Type(2)
-
-        companion object {
-            fun from(value: Int): Type {
-                return when (value) {
-                    0 -> Back
-                    1 -> Image()
-                    2 -> None
-                    else -> Back
-                }
-            }
-        }
     }
 
     var type: Type = Type.None
