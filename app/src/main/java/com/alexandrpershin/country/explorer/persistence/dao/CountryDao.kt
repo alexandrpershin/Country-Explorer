@@ -21,9 +21,6 @@ interface CountryDao {
     @Query("SELECT * from Country WHERE name=:countryName")
     fun getCountryByName(countryName: String): Country
 
-    @Update
-    fun update(country: Country)
-
     @Query("SELECT * from Country")
     fun getAllCountriesSync(): List<Country>
 

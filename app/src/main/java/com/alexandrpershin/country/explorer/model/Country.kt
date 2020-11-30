@@ -12,7 +12,7 @@ data class Country(
     val countryCode: String,
     val phoneCode: String,
     val population: Int,
-    val subregion: String,
+    val subRegion: String,
     val languages: List<String>,
     val borders: List<String>,
     val currencies: List<String>,

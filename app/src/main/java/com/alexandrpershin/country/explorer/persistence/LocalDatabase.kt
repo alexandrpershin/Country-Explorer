@@ -10,7 +10,7 @@ import com.alexandrpershin.country.explorer.persistence.dao.CountryDao
 
 @Database(
     entities = [Country::class],
-    version = 17,
+    version = 1,
     exportSchema = false
 )
 

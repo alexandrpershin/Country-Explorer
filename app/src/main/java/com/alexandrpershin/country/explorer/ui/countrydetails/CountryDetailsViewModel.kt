@@ -49,7 +49,7 @@ class CountryDetailsViewModel(
         val locationBlock = context.getString(
             R.string.country_description_sub_region_part,
             getLocalizedCountryName(context, country),
-            country.subregion
+            country.subRegion
         )
 
         val capitalBlock = context.getString(

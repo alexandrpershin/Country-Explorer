@@ -3,9 +3,10 @@ package com.alexandrpershin.country.explorer.api.response
 import com.alexandrpershin.country.explorer.api.mapper.Mapper
 import com.alexandrpershin.country.explorer.extensions.toSafeString
 import com.alexandrpershin.country.explorer.model.Country
+import com.google.gson.annotations.SerializedName
 
 
-data class CountryResponse(
+class CountryResponse(
     val alpha3Code: String?,
     val borders: List<String>?,
     val callingCodes: List<String>?,
@@ -17,7 +18,7 @@ data class CountryResponse(
     val nativeName: String?,
     val numericCode: String?,
     val population: Int?,
-    val subregion: String?,
+    @SerializedName("subregion") val subRegion: String?,
     val translations: Map<String, String>?
 ) : Mapper<Country> {
 
@@ -30,10 +31,10 @@ data class CountryResponse(
             phoneCode = callingCodes?.joinToString().toSafeString(),
             countryCode = alpha3Code.toSafeString(),
             population = population ?: 0,
-            subregion = subregion.toSafeString(),
+            subRegion = subRegion.toSafeString(),
             languages = languages?.map { it.name.toSafeString() } ?: emptyList(),
             borders = borders ?: emptyList(),
-            translations  = translations ?: mapOf(),
+            translations = translations ?: mapOf(),
             currencies = currencies?.map { "${it.name}, ${it.symbol}" } ?: emptyList(),
         )
     }

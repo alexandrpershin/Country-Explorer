@@ -21,14 +21,14 @@ class Converters {
     fun getListFromString(json: String): List<String> {
         val listType = object : TypeToken<List<String>>() {
         }.type
-        return Gson().fromJson<List<String>>(json, listType)
+        return Gson().fromJson(json, listType)
     }
 
     @TypeConverter
     fun getMapFromString(json: String): Map<String, String> {
         val listType = object : TypeToken<Map<String, String>>() {
         }.type
-        return Gson().fromJson<Map<String, String>>(json, listType)
+        return Gson().fromJson(json, listType)
     }
 
     @TypeConverter

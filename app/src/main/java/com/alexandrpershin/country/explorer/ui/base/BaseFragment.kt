@@ -31,7 +31,6 @@ abstract class BaseFragment<DB : ViewBinding, VM : BaseViewModel> : Fragment() {
         binding?.root?.findViewById(R.id.progressBar)
     }
 
-
     abstract fun initBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
@@ -90,28 +89,14 @@ abstract class BaseFragment<DB : ViewBinding, VM : BaseViewModel> : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel.navigation.observe(viewLifecycleOwner, Observer<NavigationCommand> { command ->
             when (command) {
-                is NavigationCommand.ToWithId ->
-                    findNavController().navigate(command.directions)
                 is NavigationCommand.ToWithNavDirection ->
                     findNavController().navigate(command.directions)
-                is NavigationCommand.BackTo ->
-                    findNavController().navigate(command.destinationId)
                 is NavigationCommand.Back ->
                     findNavController().popBackStack().also {
                         if (!it) {
                             requireActivity().finish()
                         }
                     }
-
-                is NavigationCommand.WithArgs -> {
-                    findNavController().navigate(command.destinationId, command.args)
-                }
-                is NavigationCommand.BackResult -> {
-                    findNavController().previousBackStackEntry?.savedStateHandle?.set(
-                        command.resultKey,
-                        command.result
-                    )
-                }
             }
         })
 
@@ -140,15 +125,6 @@ abstract class BaseFragment<DB : ViewBinding, VM : BaseViewModel> : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         binding = null
-    }
-
-    /**
-     *  Resets the navGraph
-     *  Needs to update the parent fragment with new translations
-     * */
-
-    fun recreateFragment() {
-//        viewModel.resetGraph(R.navigation.main_home_navigation)
     }
 
 }

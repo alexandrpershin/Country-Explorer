@@ -1,6 +1,5 @@
 package com.alexandrpershin.country.explorer.ui.base
 
-import android.os.Bundle
 import androidx.annotation.StringRes
 import androidx.annotation.UiThread
 import androidx.lifecycle.ViewModel
@@ -8,7 +7,6 @@ import androidx.navigation.NavDirections
 import com.alexandrpershin.country.explorer.api.ErrorType
 import com.alexandrpershin.country.explorer.utils.NavigationCommand
 import com.alexandrpershin.country.explorer.utils.SingleLiveEvent
-import java.io.Serializable
 
 abstract class BaseViewModel : ViewModel() {
 
@@ -35,11 +33,6 @@ abstract class BaseViewModel : ViewModel() {
         get() = _infoMessage
 
     @UiThread
-    fun goTo(direction: Int) {
-        _navigation.value = NavigationCommand.ToWithId(direction)
-    }
-
-    @UiThread
     fun goTo(directions: NavDirections) {
         _navigation.value = NavigationCommand.ToWithNavDirection(directions)
     }
@@ -48,19 +41,9 @@ abstract class BaseViewModel : ViewModel() {
         _navigation.value = NavigationCommand.Back
     }
 
-    fun goToWithArgs(destinationId: Int, args: Bundle) {
-        _navigation.value = NavigationCommand.WithArgs(destinationId, args)
-    }
-
-
     @UiThread
     fun notifyError(error: ErrorType) {
         _errorNotifier.value = error
-    }
-
-    @UiThread
-    fun setBackResult(resultKey: String, result: Serializable) {
-        _navigation.value = NavigationCommand.BackResult(resultKey, result)
     }
 
     fun showLoading() {
