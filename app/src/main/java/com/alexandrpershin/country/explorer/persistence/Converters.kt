@@ -13,15 +13,28 @@ class Converters {
     private val gson = Gson()
 
     @TypeConverter
-    fun getLanguagesString(list: List<String>): String {
+    fun getStringFromList(list: List<String>): String {
         return gson.toJson(list)
     }
 
     @TypeConverter
-    fun getInvestorProductsFromString(json: String): List<String> {
+    fun getListFromString(json: String): List<String> {
         val listType = object : TypeToken<List<String>>() {
         }.type
         return Gson().fromJson<List<String>>(json, listType)
     }
+
+    @TypeConverter
+    fun getMapFromString(json: String): Map<String, String> {
+        val listType = object : TypeToken<Map<String, String>>() {
+        }.type
+        return Gson().fromJson<Map<String, String>>(json, listType)
+    }
+
+    @TypeConverter
+    fun getStringFromMap(map: Map<String, String>): String {
+        return gson.toJson(map)
+    }
+
 
 }

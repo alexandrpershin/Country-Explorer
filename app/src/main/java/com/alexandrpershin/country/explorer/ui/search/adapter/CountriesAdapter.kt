@@ -9,6 +9,7 @@ import com.alexandrpershin.country.explorer.R
 import com.alexandrpershin.country.explorer.databinding.ItemCountryBinding
 import com.alexandrpershin.country.explorer.extensions.loadSvgFromUrl
 import com.alexandrpershin.country.explorer.model.Country
+import com.alexandrpershin.country.explorer.utils.getLocalizedCountryName
 
 
 class CountriesAdapter(
@@ -50,7 +51,7 @@ class CountriesAdapter(
             val country = countries[position]
             with(binding) {
 
-                tvCountryName.text = country.name
+                tvCountryName.text = getLocalizedCountryName(context, country)
 
                 ivCountryFlag.loadSvgFromUrl(
                     context,

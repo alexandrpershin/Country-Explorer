@@ -9,9 +9,9 @@ import com.alexandrpershin.country.explorer.api.ErrorType
 import com.alexandrpershin.country.explorer.databinding.FragmentCountryDetailsBinding
 import com.alexandrpershin.country.explorer.extensions.loadSvgFromUrl
 import com.alexandrpershin.country.explorer.extensions.showErrorMessage
-import com.alexandrpershin.country.explorer.model.Country
 import com.alexandrpershin.country.explorer.ui.base.BaseFragment
 import com.alexandrpershin.country.explorer.ui.cutomview.ToolbarPrimaryButton
+import com.alexandrpershin.country.explorer.utils.getLocalizedCountryName
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
@@ -48,13 +48,13 @@ class CountryDetailsFragment :
                     placeholderRes = R.drawable.ic_country_flag_placeholder
                 )
 
-                binding.tvCountryName.text = it.name
+                binding.tvCountryName.text = getLocalizedCountryName(requireContext(), it)
             }
 
         })
 
         viewModel.countryDescriptionLiveData.observe(viewLifecycleOwner, Observer { description ->
-                binding.tvCountryDescription.text = description
+            binding.tvCountryDescription.text = description
         })
 
     }

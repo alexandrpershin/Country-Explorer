@@ -8,6 +8,7 @@ import com.alexandrpershin.country.explorer.extensions.asLiveData
 import com.alexandrpershin.country.explorer.model.Country
 import com.alexandrpershin.country.explorer.repository.CountryRepository
 import com.alexandrpershin.country.explorer.ui.base.BaseViewModel
+import com.alexandrpershin.country.explorer.utils.getLocalizedCountryName
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
@@ -47,7 +48,7 @@ class CountryDetailsViewModel(
 
         val locationBlock = context.getString(
             R.string.country_description_sub_region_part,
-            country.name,
+            getLocalizedCountryName(context, country),
             country.subregion
         )
 

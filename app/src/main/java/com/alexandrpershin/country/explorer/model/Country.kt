@@ -15,7 +15,8 @@ data class Country(
     val subregion: String,
     val languages: List<String>,
     val borders: List<String>,
-    val currencies: List<String>
+    val currencies: List<String>,
+    val translations: Map<String, String>
 ) {
 
     override fun toString(): String {
