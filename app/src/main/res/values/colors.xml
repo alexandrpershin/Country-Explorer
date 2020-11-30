@@ -8,4 +8,12 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="color_progress_bar">#FFC86B</color>
+    <color name="color_circle_image_border">#F1F1F2</color>
+    <color name="color_search_bg">#408E8E93</color>
+    <color name="color_search_icon_bg">#8E8E93</color>
+    <color name="white_transparent">#80FFFFFF</color>
+    <color name="grey">#F0F0F0</color>
+
+
+
 </resources>

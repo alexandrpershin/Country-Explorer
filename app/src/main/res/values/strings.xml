@@ -1,7 +1,29 @@
 <resources>
-    <string name="app_name">CountryExplorer</string>
+    <string name="app_name">Country Explorer</string>
 
     <string name="error_message_unexpected_error">Unexpected error occurred</string>
     <string name="message_internet_error">Internet connection appears to be offline</string>
+
+    <string name="screen_title_countries">Countries</string>
+    <string name="screen_title_country_details">Country details</string>
+
+    <string name="message_you_back_online">You are back online</string>
+    <string name="search_hint">Search</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="message_no_results">No results</string>
+    <string name="label_results">Results</string>
+    <string name="message_no_results_swipe_to_refresh">No results.\n Try swiping down to refresh.</string>
+
+    <!--Country details-->
+    <string name="country_description_sub_region_part">The %1$s is located in %2$s.</string>
+    <string name="country_description_capital_part">The capital of %1$s is %2$s.</string>
+    <string name="country_description_population_part">There are %1$d people living in %2$s.</string>
+    <string name="country_description_languages_part">Nowadays there is (are) %1$d spoken language(s): %2$s.</string>
+    <string name="country_description_currencies_part">The %1$s uses %2$d currency(ies): %3$s.</string>
+    <string name="country_description_borders_part">The %1$s shares borders with %2$d country(ies): %3$s.</string>
+    <string name="country_description_code_part">Country code is \'%1$s\'.</string>
+    <string name="country_description_phone_code_part">Phone code is \'%1$s\'.</string>
+
+    <string translatable="false" name="empty_space">" "</string>
 
 </resources>

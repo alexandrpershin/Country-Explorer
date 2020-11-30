@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Исследователь стран</string>
+
+    <string name="error_message_unexpected_error">Произошла непредвиденная ошибка</string>
+    <string name="message_internet_error">Интернет-соединение отключено</string>
+
+    <string name="screen_title_countries">Страны</string>
+    <string name="screen_title_country_details">Детали страны</string>
+
+    <string name="message_you_back_online">Вы снова онлайн</string>
+    <string name="search_hint">Поиск</string>
+    <string name="action_cancel">Отмена</string>
+    <string name="message_no_results">Нет результатов</string>
+    <string name="label_results">Ресультаты</string>
+    <string name="message_no_results_swipe_to_refresh">Нет результатов.\n Попробуйте обновить страницу.</string>
+
+    <!--Country details-->
+    <string name="country_description_sub_region_part">%1$s находится в %2$s регионе.</string>
+    <string name="country_description_capital_part">Столица %1$s - %2$s.</string>
+    <string name="country_description_population_part">В стране %1$d проживает %2$s человек.</string>
+    <string name="country_description_languages_part">На сегодняшний день здесь говорят на %1$d языках: %2$s.</string>
+    <string name="country_description_currencies_part">Страна %1$s использует %2$d местные валюты: %3$s.</string>
+    <string name="country_description_borders_part">%1$s делит границы с %2$d странами: %3$s.</string>
+    <string name="country_description_code_part">Код страны - \'%1$s\'.</string>
+    <string name="country_description_phone_code_part">Телефонный код \'%1$s\'.</string>
+
+
+</resources>

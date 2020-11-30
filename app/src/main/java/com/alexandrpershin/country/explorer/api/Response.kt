@@ -21,17 +21,10 @@ inline fun <T> TaskResult<T>.doOnError(callback: (ErrorType) -> Unit) {
 }
 
 sealed class ErrorType {
-    data class LoginError(
-        @StringRes val resId: Int = R.string.error_message_unexpected_error,
-        val message: String? = null
-    ) : ErrorType()
-
-    data class TokenExpired(@StringRes val resId: Int) : ErrorType()
     data class GenericError(
         @StringRes val resId: Int = R.string.error_message_unexpected_error,
         val message: String? = null
     ) : ErrorType()
 
     data class InternetError(@StringRes val resId: Int) : ErrorType()
-    data class InputError(@StringRes val resId: Int) : ErrorType()
 }

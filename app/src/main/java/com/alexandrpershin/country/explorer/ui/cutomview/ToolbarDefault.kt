@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.annotation.DrawableRes
+import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.alexandrpershin.country.explorer.databinding.ToolbarDefaultBinding
 import com.alexandrpershin.country.explorer.extensions.isVisible
@@ -12,7 +13,7 @@ import com.alexandrpershin.country.explorer.extensions.makeVisible
 import com.alexandrpershin.country.explorer.extensions.setVisible
 import com.alexandrpershin.country.explorer.utils.SingleLiveEvent
 
-class ToolbarDefault : ConstraintLayout {
+class ToolbarDefault : CardView {
 
     private lateinit var binding: ToolbarDefaultBinding
 

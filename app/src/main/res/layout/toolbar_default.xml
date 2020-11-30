@@ -1,51 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/clRoot"
     android:layout_width="match_parent"
     android:layout_height="?android:attr/actionBarSize"
     android:background="@color/white">
 
-    <com.alexandrpershin.country.explorer.ui.cutomview.ToolbarPrimaryButton
-        android:id="@+id/btnPrimary"
-        android:visibility="invisible"
-        style="@style/ToolbarButton"
-        android:padding="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnTextAction"
-        style="@style/ToolbarActionButton"
-        android:textAllCaps="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="gone" />
+        <com.alexandrpershin.country.explorer.ui.cutomview.ToolbarPrimaryButton
+            android:id="@+id/btnPrimary"
+            style="@style/ToolbarButton"
+            android:padding="@dimen/padding_small"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/btnImageAction"
-        style="@style/ToolbarButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnTextAction"
+            style="@style/ToolbarActionButton"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="gone" />
 
-    <TextView
-        android:id="@+id/tvTitle"
-        style="@style/ToolbarTitle"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="@dimen/toolbar_title_margin"
-        android:gravity="center_vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/btnTextAction"
-        app:layout_constraintStart_toEndOf="@id/btnPrimary"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="AppTitle" />
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnImageAction"
+            style="@style/ToolbarButton"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tvTitle"
+            style="@style/ToolbarTitle"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/toolbar_title_margin"
+            android:gravity="center_vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnTextAction"
+            app:layout_constraintStart_toEndOf="@id/btnPrimary"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="AppTitle" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

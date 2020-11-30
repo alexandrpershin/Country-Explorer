@@ -56,7 +56,7 @@ class BackendApiFactory {
     }
 
     companion object {
-        private const val BASE_URL = "https://restcountries.eu/rest/v2/"
+        private const val BASE_URL = "https://restcountries.eu/"
     }
 
 }

@@ -1,0 +1,34 @@
+package com.alexandrpershin.country.explorer.ui.search.adapter
+
+import androidx.annotation.Nullable
+import androidx.recyclerview.widget.DiffUtil
+import com.alexandrpershin.country.explorer.model.Country
+
+class SearchCountryDiffCallback(
+    private var newResults: List<Country>,
+    private var oldResults: List<Country>
+) :
+    DiffUtil.Callback() {
+
+    override fun getOldListSize(): Int {
+        return oldResults.size
+    }
+
+    override fun getNewListSize(): Int {
+        return newResults.size
+    }
+
+    override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean =
+        oldResults[oldItemPosition].name == newResults[newItemPosition].name
+
+
+    override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean =
+        oldResults[oldItemPosition].name == newResults[newItemPosition].name
+
+
+    @Nullable
+    override fun getChangePayload(oldItemPosition: Int, newItemPosition: Int): Any? {
+        return super.getChangePayload(oldItemPosition, newItemPosition)
+    }
+
+}

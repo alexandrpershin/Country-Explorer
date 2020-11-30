@@ -1,9 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimaryVariant">@color/black</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -37,6 +37,46 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="App.ImageView.Clickable" parent="Widget.AppCompat.ImageButton">
+        <item name="android:padding">2dp</item>
+        <item name="android:focusable">true</item>
+        <item name="android:background">?android:attr/selectableItemBackgroundBorderless</item>
+    </style>
+
+    <style name="App.TextView.Search" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/cera_pro_regular</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="App.TextView.NoResult" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">#929292</item>
+        <item name="android:textAlignment">center</item>
+        <item name="fontFamily">@font/cera_pro_bold</item>
+        <item name="android:textSize">25sp</item>
+    </style>
+
+    <style name="App.TextView.Item.Country.Title" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/cera_pro_regular</item>
+        <item name="android:textSize">15sp</item>
+        <item name="maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="App.TextView.Item.Country.Details" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">#1C1C1C</item>
+        <item name="fontFamily">@font/roboto_medium</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="App.TextView.Country.Details.Title" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/cera_pro_bold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
 
 
 </resources>

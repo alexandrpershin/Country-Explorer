@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import androidx.annotation.LayoutRes
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import androidx.vectordrawable.graphics.drawable.ArgbEvaluator
 import com.google.android.material.tabs.TabLayout
 
@@ -73,6 +74,15 @@ fun View.enableClick() {
 fun MenuItem?.makeGone() {
     this?.isVisible = false
 }
+
+/**
+ * SwipeRefreshLayout extensions
+ * */
+
+fun SwipeRefreshLayout.stopRefreshing() {
+    isRefreshing = false
+}
+
 
 /**
  * ViewGroup extensions

@@ -3,8 +3,10 @@
     apply plugin: 'kotlin-android-extensions'
     apply plugin: 'kotlin-kapt'
     apply plugin: "androidx.navigation.safeargs.kotlin"
+    apply plugin: 'koin'
 
-android {
+
+    android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
 
@@ -43,6 +45,7 @@ android {
 
 dependencies {
 
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
     def versions = [
             gsonVersion: '2.8.6',
             glideVersion : '4.8.0',
@@ -118,4 +121,7 @@ dependencies {
 
     //Toasty
     implementation "com.github.GrenderG:Toasty:${versions.toastyVersion}"
+
+    // Glide for SVG
+    implementation 'com.github.corouteam:GlideToVectorYou:v2.0.0'
 }

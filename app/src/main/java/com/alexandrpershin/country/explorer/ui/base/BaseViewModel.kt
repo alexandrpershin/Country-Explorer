@@ -38,6 +38,7 @@ abstract class BaseViewModel : ViewModel() {
     fun goTo(direction: Int) {
         _navigation.value = NavigationCommand.ToWithId(direction)
     }
+
     @UiThread
     fun goTo(directions: NavDirections) {
         _navigation.value = NavigationCommand.ToWithNavDirection(directions)
@@ -70,14 +71,18 @@ abstract class BaseViewModel : ViewModel() {
         _loadingState.postValue(false)
     }
 
-    @UiThread
     fun showInfoMessage(@StringRes message: Int) {
-        _infoMessage.value = message
+        _infoMessage.postValue(message)
     }
 
     @UiThread
     fun hideSoftKeyboard() {
         _forceKeyboardState.value = KeyboardState.Hide
+    }
+
+    @UiThread
+    fun showSoftKeyboard() {
+        _forceKeyboardState.value = KeyboardState.Show
     }
 
 }

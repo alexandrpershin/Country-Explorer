@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_home_navigation"
+    app:startDestination="@id/countriesListFragment">
+
+    <fragment
+        android:id="@+id/countriesListFragment"
+        android:name="com.alexandrpershin.country.explorer.ui.countrylist.CountriesListFragment"
+        android:label="CountriesListFragment"
+        tools:layout="@layout/fragment_countries_list">
+        <action
+            android:id="@+id/toSearchCountriesFragment"
+            app:destination="@id/searchCountriesFragment"
+            app:enterAnim="@anim/swipe_from_right"
+            app:exitAnim="@anim/swipe_to_left"
+            app:popEnterAnim="@anim/swipe_from_left"
+            app:popExitAnim="@anim/swipe_to_right"
+            />
+        <action
+            android:id="@+id/toCountryDetailsFragment"
+            app:destination="@id/countryDetailsFragment"
+            app:enterAnim="@anim/swipe_from_right"
+            app:exitAnim="@anim/swipe_to_left"
+            app:popEnterAnim="@anim/swipe_from_left"
+            app:popExitAnim="@anim/swipe_to_right"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/searchCountriesFragment"
+        android:name="com.alexandrpershin.country.explorer.ui.search.SearchCountriesFragment"
+        android:label="SearchCountriesFragment"
+        tools:layout="@layout/fragment_search_countries">
+        <action
+            android:id="@+id/toCountryDetailsFragment"
+            app:destination="@id/countryDetailsFragment"
+            app:enterAnim="@anim/swipe_from_right"
+            app:exitAnim="@anim/swipe_to_left"
+            app:popEnterAnim="@anim/swipe_from_left"
+            app:popExitAnim="@anim/swipe_to_right"
+            />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/countryDetailsFragment"
+        android:name="com.alexandrpershin.country.explorer.ui.countrydetails.CountryDetailsFragment"
+        android:label="CountryDetailsFragment"
+        tools:layout="@layout/fragment_country_details" >
+        <argument
+            android:name="country_name"
+            app:argType="string" />
+    </fragment>
+</navigation>
