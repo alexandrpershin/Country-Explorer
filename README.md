@@ -21,16 +21,21 @@ I used Single Activity Application approach and Model-View-ViewModel architectur
 1. Countries list screen <br />
 At this screen app loads all countries from server and stores it in database.
 Data from database is displayed on the screen. If data is empty or internet connectivity 
-unavailable - app notifies user about it. To see the country details user can tap on country item.
+unavailable - app notifies user about it, in this case app automatically reloads data once internet 
+is available or user also can swipe to refresh the data. To see the country details user can tap 
+on country item.
 
 2. Countries search screen <br /> 
 App performs search on server with given country name. To see the country details user can tap on country item.
 If data is empty or internet connectivity unavailable - app notifies user about it. 
 
 3. Country details screen <br />
-App shows some details of selected country.
+App shows composed text about selected country using it's fields.
  
 4. Unit tests  <br />
 Unit tests were implemented as well.
  
+5. Localization
+All strings are extracted to strings.xml to make app localization easier.
+App also checks if country item has translation for current mobile device locale.
 
