@@ -41,7 +41,7 @@ abstract class LocalDatabase : RoomDatabase() {
         }
 
 
-        private const val DATABASE_NAME = "moneybox_db"
+        private const val DATABASE_NAME = "country_explorer_db"
     }
 }
 

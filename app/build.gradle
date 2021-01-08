@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
-apply plugin: "androidx.navigation.safeargs.kotlin"
 apply plugin: 'koin'
 
 
@@ -49,7 +48,6 @@ android {
 
 dependencies {
 
-    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
     def versions = [
             gsonVersion                     : '2.8.6',
             glideVersion                    : '4.8.0',
@@ -69,7 +67,7 @@ dependencies {
             retrofitCoroutinesAdapterVersion: '0.9.2',
             toastyVersion                   : '1.5.0',
             glideWithSvgVersion             : 'v2.0.0',
-            archCoreTestingVersion             : '2.1.0'
+            archCoreTestingVersion          : '2.1.0'
 
     ]
 
@@ -136,4 +134,6 @@ dependencies {
     //Glide
     implementation "com.github.bumptech.glide:glide:${versions.glideVersion}"
     kapt "com.github.bumptech.glide:compiler:${versions.glideVersion}"
+
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
 }

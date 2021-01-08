@@ -1,6 +1,6 @@
 package com.alexandrpershin.country.explorer.api.response
 
-import com.alexandrpershin.country.explorer.api.mapper.Mapper
+import com.alexandrpershin.country.explorer.api.mapper.DtoMapper
 import com.alexandrpershin.country.explorer.extensions.toSafeString
 import com.alexandrpershin.country.explorer.model.Country
 import com.google.gson.annotations.SerializedName
@@ -23,7 +23,7 @@ class CountryResponse(
     @SerializedName("population") val population: Int?,
     @SerializedName("subregion") val subRegion: String?,
     @SerializedName("translations") val translations: Map<String, String>?
-) : Mapper<Country> {
+) : DtoMapper<Country> {
 
     /**
      * Convert response object from DTO (Data transfer object) to entity object
