@@ -1,5 +1,6 @@
 package com.alexandrpershin.country.explorer.repository
 
+import androidx.lifecycle.LiveData
 import com.alexandrpershin.country.explorer.api.TaskResult
 import com.alexandrpershin.country.explorer.model.Country
 
@@ -18,4 +19,6 @@ interface CountryRepository {
     suspend fun searchCountries(countryName: String): TaskResult<List<Country>>
 
     suspend fun getCountryByName(countryName: String): Country
+
+    fun getAllCountriesLiveData(): LiveData<List<Country>>
 }

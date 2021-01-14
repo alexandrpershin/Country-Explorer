@@ -1,5 +1,6 @@
 package com.alexandrpershin.country.explorer.persistence.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.alexandrpershin.country.explorer.model.Country
 
@@ -23,6 +24,9 @@ interface CountryDao {
 
     @Query("SELECT * from Country")
     fun getAllCountriesSync(): List<Country>
+
+    @Query("SELECT * from Country")
+    fun getAllCountriesLiveData(): LiveData<List<Country>>
 
     @Query("DELETE FROM Country")
     fun deleteCountry()

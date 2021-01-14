@@ -1,6 +1,8 @@
 package com.alexandrpershin.country.explorer.ui.countrydetails
 
+import android.app.Application
 import android.content.Context
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.alexandrpershin.country.explorer.R
@@ -14,7 +16,7 @@ import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
 class CountryDetailsViewModel(
-    private val context: Context,
+    private val context: Application,
     private val countryName: String,
     private val repository: CountryRepository,
     private val coroutineContext: CoroutineContext = Dispatchers.Main
@@ -35,7 +37,8 @@ class CountryDetailsViewModel(
             val country = repository.getCountryByName(countryName)
             _countryLiveData.value = country
 
-            composeDescription(country)
+            val description = composeDescription(country)
+            _countryDescriptionLiveData.value = description
         }
     }
 
@@ -44,7 +47,7 @@ class CountryDetailsViewModel(
      * Creates description of country using common template.
     * */
 
-    private suspend fun composeDescription(country: Country) {
+    private suspend fun composeDescription(country: Country): String {
         val allCountries = repository.getAllCountriesSync()
 
         val borderCountriesNames =
@@ -113,7 +116,7 @@ class CountryDetailsViewModel(
             .append(emptySpace)
             .append(phoneCodeBlock)
 
-        _countryDescriptionLiveData.value = description.toString()
+        return description.toString()
     }
 
 

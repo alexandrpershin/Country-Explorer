@@ -5,6 +5,7 @@ import androidx.annotation.UiThread
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavDirections
 import com.alexandrpershin.country.explorer.api.ErrorType
+import com.alexandrpershin.country.explorer.extensions.asLiveData
 import com.alexandrpershin.country.explorer.utils.NavigationCommand
 import com.alexandrpershin.country.explorer.utils.SingleLiveEvent
 
@@ -18,24 +19,19 @@ abstract class BaseViewModel : ViewModel() {
     val TAG = this.javaClass.simpleName
 
     private val _navigation: SingleLiveEvent<NavigationCommand> = SingleLiveEvent()
-    val navigation
-        get() = _navigation
+    val navigation = _navigation.asLiveData()
 
     private val _errorNotifier: SingleLiveEvent<ErrorType> = SingleLiveEvent()
-    val errorNotifier
-        get() = _errorNotifier
+    val errorNotifier = _errorNotifier.asLiveData()
 
     private val _loadingState: SingleLiveEvent<Boolean> = SingleLiveEvent()
-    val loadingState
-        get() = _loadingState
+    val loadingState = _loadingState.asLiveData()
 
     private val _forceKeyboardState: SingleLiveEvent<KeyboardState> = SingleLiveEvent()
-    val forceKeyboardState
-        get() = _forceKeyboardState
+    val forceKeyboardState = _forceKeyboardState.asLiveData()
 
     private val _infoMessage: SingleLiveEvent<Int> = SingleLiveEvent()
-    val infoMessage
-        get() = _infoMessage
+    val infoMessage = _infoMessage.asLiveData()
 
     @UiThread
     fun goTo(directions: NavDirections) {

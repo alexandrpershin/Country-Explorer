@@ -1,5 +1,6 @@
 package com.alexandrpershin.country.explorer.repository.repositoryImpl
 
+import androidx.lifecycle.LiveData
 import com.alexandrpershin.country.explorer.api.TaskResult
 import com.alexandrpershin.country.explorer.api.executeAsyncRequest
 import com.alexandrpershin.country.explorer.api.mapper.mapToEntityList
@@ -32,6 +33,8 @@ class CountryRepositoryImpl(
     override suspend fun getAllCountriesSync(): List<Country> = withContext(coroutineContext) {
         return@withContext countryDao.getAllCountriesSync()
     }
+
+    override fun getAllCountriesLiveData(): LiveData<List<Country>> = countryDao.getAllCountriesLiveData()
 
     override suspend fun saveCountries(countries: List<Country>) = withContext(coroutineContext) {
         countryDao.saveCountries(countries)

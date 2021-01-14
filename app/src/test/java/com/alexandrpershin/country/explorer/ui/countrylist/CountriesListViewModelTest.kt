@@ -1,15 +1,18 @@
 package com.alexandrpershin.country.explorer.ui.countrylist
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import com.alexandrpershin.country.explorer.R
 import com.alexandrpershin.country.explorer.api.ErrorType
 import com.alexandrpershin.country.explorer.api.TaskResult
+import com.alexandrpershin.country.explorer.extentsions.getValueBlocking
 import com.alexandrpershin.country.explorer.model.Country
 import com.alexandrpershin.country.explorer.repository.CountryRepository
 import com.alexandrpershin.country.explorer.testModule
 import com.alexandrpershin.country.explorer.utils.JsonUtils
 import io.mockk.*
+import junit.framework.Assert.assertEquals
 import kotlinx.coroutines.test.TestCoroutineDispatcher
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.After
@@ -37,6 +40,7 @@ class CountriesListViewModelTest : KoinTest {
     /**
      * Allows LiveData value changes in unit tests without the need for Android SDK classes.
      */
+
     @Rule
     @JvmField
     val instantExecutorRule = InstantTaskExecutorRule()
@@ -58,26 +62,29 @@ class CountriesListViewModelTest : KoinTest {
         val data = listOf(JsonUtils.provideTestCountry())
         coEvery { get<CountryRepository>().getAllCountriesSync() } returns data
 
-        val mockObserver = spyk<Observer<List<Country>>>()
+        val successResult = TaskResult.SuccessResult(data)
+
+        coEvery { get<CountryRepository>().fetchAllCountriesFromServer() } returns successResult
+        every { get<CountryRepository>().getAllCountriesLiveData() } returns MutableLiveData(data)
 
         val viewModel = get<CountriesListViewModel>()
-        viewModel.countriesLiveData.observeForever(mockObserver)
 
-        viewModel.loadCountriesFromDatabase()
+        val dataFromDb = viewModel.countriesLiveData.getValueBlocking()
 
-        verify(atLeast = 1) { mockObserver.onChanged(data) }
+        assertEquals(dataFromDb, data)
     }
 
     @Test
     fun `test empty data message`() = runBlockingTest(testCoroutineDispatcher) {
         val emptyList = listOf<Country>()
-        coEvery { get<CountryRepository>().getAllCountriesSync() } returns emptyList
+        coEvery { get<CountryRepository>().getAllCountriesLiveData() } returns MutableLiveData(emptyList)
 
         val mockObserver = spyk<Observer<Boolean>>()
 
         val viewModel = get<CountriesListViewModel>()
         viewModel.noResultsLiveData.observeForever(mockObserver)
-        viewModel.loadCountriesFromDatabase()
+
+        viewModel.loadCountriesFormServer()
 
         verify(atLeast = 1) { mockObserver.onChanged(true) }
     }
