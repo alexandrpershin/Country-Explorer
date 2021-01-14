@@ -43,7 +43,6 @@ class CountryDetailsFragment :
 
             country?.let {
                 binding.ivCountryFlag.loadSvgFromUrl(
-                    requireContext(),
                     it.flag,
                     placeholderRes = R.drawable.ic_country_flag_placeholder
                 )

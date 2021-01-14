@@ -54,7 +54,6 @@ class CountriesAdapter(
                 tvCountryName.text = getLocalizedCountryName(context, country)
 
                 ivCountryFlag.loadSvgFromUrl(
-                    context,
                     country.flag,
                     R.drawable.ic_country_flag_placeholder,
                     50,
